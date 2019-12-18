@@ -57,17 +57,17 @@ async def rm_deletedacc(show):
         return
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "`No deleted accounts found, Group is cleaned as Hell`"
+    del_status = "<code>No deleted accounts found, Group is cleaned as Hell</code>"
 
     if con != "clean":
-        await show.edit("`Searching for zombie accounts...`")
+        await show.edit("<code>Searching for zombie accounts...</code>")
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = f"Found **{del_u}** deleted account(s) in this group,\
-            \nclean them by using `.zombies clean`"
+            del_status = f"Found <b>{del_u}</b> deleted account(s) in this group,\
+            \nclean them by using <code>.zombies clean</code>"
 
         await show.edit(del_status)
         return
@@ -79,10 +79,10 @@ async def rm_deletedacc(show):
 
     # Well
     if not admin and not creator:
-        await show.edit("`I am not an admin here!`")
+        await show.edit("<code>I am not an admin here!</code>")
         return
 
-    await show.edit("`Deleting deleted accounts...\nOh I can do that?!?!`")
+    await show.edit("<code>Deleting deleted accounts...\nOh I can do that?!?!</code>")
     del_u = 0
     del_a = 0
 
@@ -92,7 +92,7 @@ async def rm_deletedacc(show):
                 await show.client(
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS))
             except ChatAdminRequiredError:
-                await show.edit("`I don't have ban rights in this group`")
+                await show.edit("<code>I don't have ban rights in this group</code>")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -102,11 +102,11 @@ async def rm_deletedacc(show):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s)"
+        del_status = f"Cleaned <b>{del_u}</b> deleted account(s)"
 
     if del_a > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s) \
-        \n**{del_a}** deleted admin accounts are not removed"
+        del_status = f"Cleaned <b>{del_u}</b> deleted account(s) \
+        \n<b>{del_a}</b> deleted admin accounts are not removed"
 
     await show.edit(del_status)
     await sleep(2)
@@ -115,7 +115,7 @@ async def rm_deletedacc(show):
     if BOTLOG:
         await show.client.send_message(
             BOTLOG_CHATID, "#CLEANUP\n"
-            f"Cleaned **{del_u}** deleted account(s) !!\
+            f"Cleaned <b>{del_u}</b> deleted account(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")
 
 
@@ -129,17 +129,17 @@ async def get_users(show):
         if not show.pattern_match.group(1):
             async for user in show.client.iter_participants(show.chat_id):
                 if not user.deleted:
-                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                    mentions += f"\n<a href='tg://user?id={user.id}'>{user.first_name}</a> <code>{user.id}</code>"
                 else:
-                    mentions += f"\nDeleted Account `{user.id}`"
+                    mentions += f"\nDeleted Account <code>{user.id}</code>"
         else:
             searchq = show.pattern_match.group(1)
             async for user in show.client.iter_participants(
                     show.chat_id, search=f'{searchq}'):
                 if not user.deleted:
-                    mentions += f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                    mentions += f"\n<a href='tg://user?id={user.id}'>{user.first_name}</a> <code>{user.id}</code>"
                 else:
-                    mentions += f"\nDeleted Account `{user.id}`"
+                    mentions += f"\nDeleted Account <code>{user.id}</code>"
     except ChatAdminRequiredError as err:
         mentions += " " + str(err) + "\n"
     try:
@@ -176,7 +176,7 @@ async def get_user_from_event(event):
             user = int(user)
 
         if not user:
-            await event.edit("`Pass the user's username, id or reply!`")
+            await event.edit("<code>Pass the user's username, id or reply!</code>")
             return
 
         if event.message.entities is not None:
