@@ -53,18 +53,19 @@ class DoNotDisturb(loader.Module):
                "afk_rate_limit_off": "<b>AFK status message rate limit disabled.</b>",
                "afk_rate_limit_on": ("<b>AFK status message rate limit enabled.</b>"
                                      "\n\n<b>One AFK status message max will be sent per chat.</b>"),
-               "afk_reason": ("<b>I'm AFK right now (since {} ago).</b>"
-                              "\n\n<b>Reason :</b> <i>{}</i>"),
+               "afk_reason": ("<b>Saya sedang AFK sekarang (sejak {} yang lalu).</b>"
+                              "\n\n<b>Alasan :</b> <i>{}</i>"),
                "arg_on_off": "<b>Argument must be 'off' or 'on' !</b>",
                "pm_off": ("<b>Automatic answer for denied PMs disabled."
                           "\n\nUsers are now free to PM !</b>"),
                "pm_on": "<b>An automatic answer is now sent for denied PMs.</b>",
-               "pm_allowed": "<b>I have allowed</b> <a href='tg://user?id={}'>you</a> <b>to PM now.</b>",
-               "pm_blocked": ("<b>I don't want any PM from</b> <a href='tg://user?id={}'>you</a>, "
-                              "<b>so you have been blocked !</b>"),
+               "pm_allowed": "<b>Saya telah mengijinkan</b> <a href='tg://user?id={}'>kamu</a> <b>untuk PM sekarang.</b>",
+               "pm_blocked": ("<b>Saya tidak ingin menerima pesan pribadi dari</b> <a href='tg://user?id={}'>kamu</a>, "
+                              "<b>jadi kamu telah diblokir !</b>"),
                "pm_denied": "<b>I have denied</b> <a href='tg://user?id={}'>you</a> <b>to PM now.</b>",
-               "pm_go_away": ("Hey there! Unfortunately, I don't accept private messages from strangers."
-                              "\n\nPlease contact me in a group, or <b>wait</b> for me to approve you."),
+               "pm_go_away": ("Hai! Mohon maaf, saya belum bisa menjawab pesan anda sekarang."
+                              "\n\nMohon kontak saya di grup, atau <b>tunggu</b> hingga saya mengijinkan dan menerima pesan anda."
+                              "\n\n<b>Penjawab Pesan Otomatis.</b>."),
                "pm_reported": "<b>You just got reported to spam !</b>",
                "pm_limit_arg": "<b>Argument must be 'off', 'on' or a number between 10 and 1000 !</b>",
                "pm_limit_off": "<b>Not allowed users are now free to PM without be automatically blocked.</b>",
