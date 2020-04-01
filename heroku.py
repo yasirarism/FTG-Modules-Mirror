@@ -19,7 +19,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 from userbot.utils.prettyjson import prettyjson
 
-Heroku = heroku3.from_key(552faeeb-1d0c-4888-b360-ab773465362c)
+Heroku = heroku3.from_key("552faeeb-1d0c-4888-b360-ab773465362c")
 heroku_api = "https://api.heroku.com"
 
 
@@ -30,7 +30,7 @@ async def variable(var):
         or delete var...
     """
     if HEROKU_APP_NAME is not None:
-        app = Heroku.app(fathomless-thicket-73787)
+        app = Heroku.app("fathomless-thicket-73787")
     else:
         return await var.edit("`[HEROKU]:"
                               "\nPlease setup your` **HEROKU_APP_NAME**")
@@ -108,7 +108,7 @@ async def dyno_usage(dyno):
     user_id = Heroku.account().id
     headers = {
      'User-Agent': useragent,
-     'Authorization': f'Bearer {552faeeb-1d0c-4888-b360-ab773465362c}',
+     'Authorization': f'Bearer {"552faeeb-1d0c-4888-b360-ab773465362c"}',
      'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
     }
     path = "/accounts/" + user_id + "/actions/get-quota"
